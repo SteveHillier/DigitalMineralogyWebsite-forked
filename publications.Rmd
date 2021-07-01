@@ -27,20 +27,28 @@ output:
 
 ## **Research articles**
 
-Butler, B.M., Sila, A.M., Shepherd, K.D., Nyambura, M., Gilmore, C.J., Kourkoumelis, N., Hillier, S. (2019) [Pre-treatment of soil X-ray powder diffraction data for cluster analysis](https://www.sciencedirect.com/science/article/pii/S0016706118307651), *Geoderma*, 337, 413-424.
+Butler, B.M., Hillier, S. (2021) [powdR: An R package for quantitative mineralogy using full pattern summation of X-ray powder diffraction data](https://doi.org/10.1016/j.cageo.2020.104662), *Computers and Geosciences*, 147, Article No. 104662.
+
+Butler, B.M., Hillier, S. (2021) [Automated full-pattern summation of X-ray powder diffraction data for high-throughput quantification of clay-bearing mixtures](https://doi.org/10.1007/s42860-020-00105-6), *Clays and Clay Minerals*, 69, 38-51.
+
+Butler, B.M. (2020) [Mineral sources of aqua regia extractable base cations in Scottish soils interpreted from Cubist models trained with quantitative mineralogy data](https://doi.org/10.1016/j.chemgeo.2020.119773), *Chemical Geology*, 551, Article No. 119773.
+
+Butler, B.M., Sila, A.M., Shepherd, K.D., Nyambura, M., Gilmore, C.J., Kourkoumelis, N., Hillier, S. (2019) [Pre-treatment of soil X-ray powder diffraction data for cluster analysis](https://doi.org/10.1016/j.geoderma.2020.114474), *Geoderma*, 337, 413-424.
 
 Hillier, S. and Butler, B. (2018) [New XRD data-based approaches to soil mineralogy](http://www.spectroscopyonline.com/trends-x-ray-techniques-4?pageID=4), *Spectroscopy*, 33, 34-36.
 
-Butler, B M., O'Rourke, S.M., Hillier, S. (2018) [Using rule-based regression models to predict and interpret soil properties from X-ray powder diffraction data](https://www.sciencedirect.com/science/article/pii/S0016706117317007), *Geoderma*, 329, 43-53.
+Butler, B M., O'Rourke, S.M., Hillier, S. (2018) [Using rule-based regression models to predict and interpret soil properties from X-ray powder diffraction data](https://doi.org/10.1016/j.geoderma.2018.04.005), *Geoderma*, 329, 43-53.
 
 ---
 
 ## **Software**
-Butler, B. M. and Hillier, S. (2019) powdR: Full Pattern Summation of X-Ray Powder Diffraction Data. *R package version 1.0.0*. [https://CRAN.R-project.org/package=powdR](https://CRAN.R-project.org/package=powdR)
+Butler, B. M. and Hillier, S. (2021) powdR: Full Pattern Summation of X-Ray Powder Diffraction Data. *R package version 1.2.5*. [https://CRAN.R-project.org/package=powdR](https://CRAN.R-project.org/package=powdR)
 
 ---
 
 ## **Conference Proceedings**
+von Fromm, S. F., Hoyt, A. M., Butler, B. M., Berhe, A. A., Doetterl, S., Haefele, S. M., McGrath, S. P., Shepherd, K. D., Six, J., Towett, E. K., Winowiecki, L. A., and Trumbore, S. E. (2021) [Soil carbon persistence linked to mineralogy across sub-Saharan Africa](https://doi.org/10.5194/egusphere-egu21-10703), *EGU General Assembly 2021*, Vienna. 
+
 Butler, B. M., Shepherd, K. D., Nyambura, K. M., Sila, A., Palarea-Albaladejo, J., and Hillier, S. (2019), [Mineral–nutrient relationships in African soils assessed using cluster analysis of X-ray powder diffraction data](https://meetingorganizer.copernicus.org/EGU2019/EGU2019-7571.pdf), *EGU General Assembly*, Vienna.
 
 Butler, B. M., and Hillier, S. (2019), [A terrestrial soil analogue for Martian mineralogy identified by the digital soil mineralogy concept application to X-ray powder diffraction measurements on Earth and Mars](https://meetingorganizer.copernicus.org/EGU2019/EGU2019-17694.pdf), *EGU General Assembly*, Vienna.

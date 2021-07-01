@@ -1,0 +1,36 @@
+---
+title: "Publications"
+output: 
+  html_document:
+    includes:
+      after_body: footer.html
+---
+
+  <style type="text/css">
+  .title {
+    display: none;
+  }
+  
+  body{ /* Normal  */
+      font-size: 16px;
+  }
+  code.r{ /* Code block */
+    font-size: 16px;
+  }
+  p {line-height: 1.5em;}
+  
+  }
+  </style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-9">
+
+## **Digital Soil Mineralogy with R: Online Course**
+
+The Digital Soil Mineralogy with R course, written using [bookdown](https://bookdown.org/), contains written and video tutorials on a range of different topics that use data-driven approaches to analyse soil XRPD data. The course also includes a comprehensive chapter on the use of the **powdR**(https://cran.r-project.org/web/packages/powdR/index.html) package for XRPD data manipulations and quantitative phases analysis.
+
+Whilst the examples within the course documentation use soil XRPD data, the approaches described within are applicable to XRPD data from any discipline, and thus the code can easily be adapted for different purposes.
+
+<center>
+<a href="http://www.digitalmineralogy.com/book/" >Hello, world!</a>
+</center>

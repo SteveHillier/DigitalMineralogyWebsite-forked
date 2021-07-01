@@ -10,5 +10,7 @@ navbar:
       href: powdR.html
     - text: "Web applications"
       href: web_applications.html
+    - text: "R course"
+      href: R_course.html
     - text: "Contact"
       href: contact.html
