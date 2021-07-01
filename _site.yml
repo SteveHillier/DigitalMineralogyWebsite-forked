@@ -1,0 +1,14 @@
+name: "my-website"
+navbar:
+  title: "Digital Soil Mineralogy"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Publications"
+      href: publications.html
+    - text: "powdR"
+      href: powdR.html
+    - text: "Web applications"
+      href: web_applications.html
+    - text: "Contact"
+      href: contact.html

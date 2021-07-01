@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>The powdR package</title>
+
+<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Digital Soil Mineralogy</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="publications.html">Publications</a>
+</li>
+<li>
+  <a href="powdR.html">powdR</a>
+</li>
+<li>
+  <a href="web_applications.html">Web applications</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">The powdR package</h1>
+
+</div>
+
+
+<style type="text/css">
+  .title {
+    display: none;
+  }
+  
+  body{ /* Normal  */
+      font-size: 16px;
+  }
+  code.r{ /* Code block */
+    font-size: 16px;
+  }
+  p {line-height: 1.5em;}
+  
+  }
+  </style>
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-9">
+
+
+
+
+<div id="the-powdr-package" class="section level1">
+<h1><strong>The <code>powdR</code> package</strong></h1>
+<p><a href="https://travis-ci.org/benmbutler/powdR"><img src="https://travis-ci.org/benmbutler/powdR.svg?branch=master" alt="Build Status" /></a> <a href="https://CRAN.R-project.org/package=powdR"><img src="http://www.r-pkg.org/badges/version/powdR" alt="CRAN_Status_Badge" /></a> <a href="https://cran.r-project.org/package=powdR"><img src="https://cranlogs.r-pkg.org/badges/grand-total/powdR" alt="Total_Downloads" /></a></p>
+<hr />
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>powdR</code> is an open source implementation of the full pattern summation approach to quantitative mineralogy from X-ray powder diffraction data <span class="citation">(Chipera and Bish 2002, 2013; Eberl 2003)</span>, written in the <code>R</code> programming language. It seeks to make quantitative phase analysis from XRPD data a faster and more user-friendly procedure.</p>
+<p>This short tutorial explains the installation and basic use of <code>powdR</code>, which requires a prior installation of R. A more detailed tutorial of the package is provided in the pacakge <a href="https://cran.r-project.org/web/packages/powdR/vignettes/powdR_vignette.html">Vignette</a>, and video tutorials of the <code>powdR</code> web application can be found on the powdR <a href="https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw">YouTube channel</a>.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>The stable version of <code>powdR</code> is on CRAN:</p>
+<pre class="r"><code>install.packages(&quot;powdR&quot;)</code></pre>
+<p>Alternatively, the development version can be downloaded from GitHub</p>
+<pre class="r"><code>#Install devtools if you don&#39;t already have it on your machine
+install.packages(&quot;devtools&quot;)
+
+devtools::install_github(&#39;benmbutler/powdR&#39;)</code></pre>
+</div>
+<div id="basic-usage" class="section level2">
+<h2>Basic usage</h2>
+<pre class="r"><code>library(powdR)
+#&gt; powdR: Full Pattern Summation of X-Ray Powder Diffraction Data
+
+#Load some soils to quantify
+data(soils)
+
+#Load a powdRlib reference library of pure patterns
+data(minerals)
+
+#Quantify a sample
+q &lt;-  fps(lib = minerals,
+          smpl = soils$sandstone,
+          refs = minerals$phases$phase_id,
+          std = &quot;QUA.1&quot;)
+#&gt; 
+#&gt; -Aligning sample to the internal standard
+#&gt; -Interpolating library to same 2theta scale as aligned sample
+#&gt; -Optimising...
+#&gt; -Removing negative coefficients and reoptimising...
+#&gt; -Computing phase concentrations
+#&gt; -Internal standard concentration unknown. Assuming phases sum to 100 %
+#&gt; ***Full pattern summation complete***
+
+#Inspect the phase concentrations (summarised by name)
+q$phases_grouped
+#&gt;       phase_name phase_percent
+#&gt; 1         Quartz       53.6918
+#&gt; 2     K-feldspar        1.3184
+#&gt; 3    Plagioclase        1.1637
+#&gt; 4         Illite        1.3515
+#&gt; 5      Kaolinite        1.3697
+#&gt; 6 Organic-Matter       41.1049
+
+#Inspect the quantification
+plot(q, wavelength = &quot;Cu&quot;)</code></pre>
+<p><img src="powdR_files/figure-html/example-1.png" width="672" /></p>
+<p>Alternatively, <code>plot(q, wavelength = "Cu", interactive = TRUE)</code> provides an interactive plot for better inspection of the fit.</p>
+</div>
+<div id="the-powdr-shiny-app" class="section level2">
+<h2>The <code>powdR</code> Shiny app</h2>
+<p>To run <code>powdR</code> via the Shiny web applicationp, use <code>run_powdR()</code>. This loads the application in your default web browser. The application has eight tabs:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Reference Library Builder:</strong> Allows you to create and export a <code>powdRlib</code> reference library from two .csv files: one for the XRPD measurements, and the other for the ID, name and reference intensity ratio of each pattern.</li>
+<li><strong>Reference Library Viewer:</strong> Facilitates quick inspection of the phases within a <code>powdRlib</code> reference library.</li>
+<li><strong>Reference Library Editor:</strong> Allows the user to easily subset a <code>powdRlib</code> reference library .</li>
+<li><strong>Full Pattern Summation:</strong> A user friendly interface for iterative full pattern summation of single samples.</li>
+<li><strong>Automated Full Pattern Summation:</strong> A user friendly interface for automated full pattern summation of single samples.</li>
+<li><strong>Results viewer:</strong> Allows for quick inspection of results derived from full pattern summation.</li>
+<li><strong>Results editor:</strong> Allows for results from previously saved <code>powdRfps</code> and <code>powdRafps</code> objects to be edited via addition or removal of reference patterns to the fitting process.</li>
+<li><strong>Help</strong> Provides a series of video tutorials (via YouTube) detailing the use of the <code>powdR</code> Shiny application.</li>
+</ol>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2 class="unnumbered">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Chipera2002" class="csl-entry">
+Chipera, Steve J., and David L. Bish. 2002. <span>“<span class="nocase">FULLPAT: A full-pattern quantitative analysis program for X-ray powder diffraction using measured and calculated patterns</span>.”</span> <em>Journal of Applied Crystallography</em> 35 (6): 744–49. <a href="https://doi.org/10.1107/S0021889802017405">https://doi.org/10.1107/S0021889802017405</a>.
+</div>
+<div id="ref-Chipera2013" class="csl-entry">
+———. 2013. <span>“<span class="nocase">Fitting Full X-Ray Diffraction Patterns for Quantitative Analysis: A Method for Readily Quantifying Crystalline and Disordered Phases</span>.”</span> <em>Advances in Materials Physics and Chemistry</em> 03 (01): 47–53. <a href="https://doi.org/10.4236/ampc.2013.31A007">https://doi.org/10.4236/ampc.2013.31A007</a>.
+</div>
+<div id="ref-Eberl2003" class="csl-entry">
+Eberl, D. D. 2003. <span>“<span class="nocase">User’s guide to ROCKJOCK - A program for determining quantitative mineralogy from powder X-ray diffraction data</span>.”</span> Boulder, CA: USGS.
+</div>
+</div>
+</div>
+</div>
+
+&nbsp;
+<hr />
+
+<p style="text-align: center;">
+ 	
+<a href="https://www.hutton.ac.uk"><img src="images/JHI_logo.png" /></p></a>
+                
+&nbsp;
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

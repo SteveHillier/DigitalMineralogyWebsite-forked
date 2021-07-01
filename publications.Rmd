@@ -1,0 +1,65 @@
+---
+title: "Publications"
+output: 
+  html_document:
+    includes:
+      after_body: footer.html
+---
+
+  <style type="text/css">
+  .title {
+    display: none;
+  }
+  
+  body{ /* Normal  */
+      font-size: 16px;
+  }
+  code.r{ /* Code block */
+    font-size: 16px;
+  }
+  p {line-height: 1.5em;}
+  
+  }
+  </style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-9">
+
+## **Research articles**
+
+Butler, B.M., Sila, A.M., Shepherd, K.D., Nyambura, M., Gilmore, C.J., Kourkoumelis, N., Hillier, S. (2019) [Pre-treatment of soil X-ray powder diffraction data for cluster analysis](https://www.sciencedirect.com/science/article/pii/S0016706118307651), *Geoderma*, 337, 413-424.
+
+Hillier, S. and Butler, B. (2018) [New XRD data-based approaches to soil mineralogy](http://www.spectroscopyonline.com/trends-x-ray-techniques-4?pageID=4), *Spectroscopy*, 33, 34-36.
+
+Butler, B M., O'Rourke, S.M., Hillier, S. (2018) [Using rule-based regression models to predict and interpret soil properties from X-ray powder diffraction data](https://www.sciencedirect.com/science/article/pii/S0016706117317007), *Geoderma*, 329, 43-53.
+
+---
+
+## **Software**
+Butler, B. M. and Hillier, S. (2019) powdR: Full Pattern Summation of X-Ray Powder Diffraction Data. *R package version 1.0.0*. [https://CRAN.R-project.org/package=powdR](https://CRAN.R-project.org/package=powdR)
+
+---
+
+## **Conference Proceedings**
+Butler, B. M., Shepherd, K. D., Nyambura, K. M., Sila, A., Palarea-Albaladejo, J., and Hillier, S. (2019), [Mineral–nutrient relationships in African soils assessed using cluster analysis of X-ray powder diffraction data](https://meetingorganizer.copernicus.org/EGU2019/EGU2019-7571.pdf), *EGU General Assembly*, Vienna.
+
+Butler, B. M., and Hillier, S. (2019), [A terrestrial soil analogue for Martian mineralogy identified by the digital soil mineralogy concept application to X-ray powder diffraction measurements on Earth and Mars](https://meetingorganizer.copernicus.org/EGU2019/EGU2019-17694.pdf), *EGU General Assembly*, Vienna.
+
+---
+
+## **News articles**
+
+**BBC:** [Martian and Scottish soils 'strikingly similar'](https://www.bbc.co.uk/news/uk-scotland-highlands-islands-46521999)
+
+**The Times:** [Scottish soil offers key to understanding Mars](https://www.thetimes.co.uk/article/scottish-soil-could-be-the-key-to-ancient-mars-gkqtpg5xs)
+
+**The i:** [Soil on Mars 'strikingly similar' to type on two Scottish islands](https://inews.co.uk/news/scotland/soil-on-mars-strikingly-similar-to-that-found-on-two-scottish-islands/)
+
+**The Press and Journal:** [Is there Life on Mars? Aberdeen scientists discover their soil is similar to Mull](https://www.pressandjournal.co.uk/fp/news/aberdeen/1628874/is-there-life-on-mars-aberdeen-scientists-discover-their-soil-is-similar-to-mull/)
+
+**The Scotsman:** [Soil on Mars 'strikingly similar' to that on Scottish islands](https://www.scotsman.com/news/environment/soil-on-mars-strikingly-similar-to-that-on-scottish-islands-1-4843183)
+
+**The James Hutton Institute:** [Creation of soil X-ray signatures contribute to vision of 'digital mineralogy'](https://www.hutton.ac.uk/news/creation-soil-x-ray-signatures-contribute-vision-%E2%80%9Cdigital-mineralogy%E2%80%9D)
+
+
+

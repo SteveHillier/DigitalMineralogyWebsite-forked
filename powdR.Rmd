@@ -1,0 +1,109 @@
+---
+title: "The powdR package"
+output: 
+  html_document:
+    includes:
+      after_body: footer.html
+bibliography: bibliography.bib
+---
+
+  <style type="text/css">
+  .title {
+    display: none;
+  }
+  
+  body{ /* Normal  */
+      font-size: 16px;
+  }
+  code.r{ /* Code block */
+    font-size: 16px;
+  }
+  p {line-height: 1.5em;}
+  
+  }
+  </style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-9">
+
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# **The `powdR` package**
+
+[![Build Status](https://travis-ci.org/benmbutler/powdR.svg?branch=master)](https://travis-ci.org/benmbutler/powdR)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/powdR)](https://CRAN.R-project.org/package=powdR)
+[![Total_Downloads](https://cranlogs.r-pkg.org/badges/grand-total/powdR)](https://cran.r-project.org/package=powdR)
+
+---
+
+## Overview
+
+`powdR` is an open source implementation of the full pattern summation approach to quantitative mineralogy from X-ray powder diffraction data [@Chipera2002;@Chipera2013;@Eberl2003], written in the `R` programming language. It seeks to make quantitative phase analysis from XRPD data a faster and more user-friendly procedure.
+
+This short tutorial explains the installation and basic use of `powdR`, which requires a prior installation of R. A more detailed tutorial of the package is provided in the pacakge [Vignette](https://cran.r-project.org/web/packages/powdR/vignettes/powdR_vignette.html), and video tutorials of the `powdR` web application can be found on the powdR [YouTube channel](https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw).
+
+## Installation
+
+The stable version of `powdR` is on CRAN:
+```{r, eval = FALSE}
+install.packages("powdR")
+```
+
+Alternatively, the development version can be downloaded from GitHub
+```{r, eval = FALSE}
+#Install devtools if you don't already have it on your machine
+install.packages("devtools")
+
+devtools::install_github('benmbutler/powdR')
+```
+
+## Basic usage
+
+```{r example}
+library(powdR)
+
+#Load some soils to quantify
+data(soils)
+
+#Load a powdRlib reference library of pure patterns
+data(minerals)
+
+#Quantify a sample
+q <-  fps(lib = minerals,
+          smpl = soils$sandstone,
+          refs = minerals$phases$phase_id,
+          std = "QUA.1")
+
+#Inspect the phase concentrations (summarised by name)
+q$phases_grouped
+
+#Inspect the quantification
+plot(q, wavelength = "Cu")
+
+```
+
+Alternatively, `plot(q, wavelength = "Cu", interactive = TRUE)` provides an interactive plot for better inspection of the fit.
+
+## The `powdR` Shiny app
+
+To run `powdR` via the Shiny web applicationp, use `run_powdR()`. This loads the application in your default web browser. The application has eight tabs:
+
+1. **Reference Library Builder:** Allows you to create and export a `powdRlib` reference library from two .csv files: one for the XRPD measurements, and the other for the ID, name and reference intensity ratio of each pattern.
+2. **Reference Library Viewer:** Facilitates quick inspection of the phases within a `powdRlib` reference library.
+3. **Reference Library Editor:** Allows the user to easily subset a `powdRlib` reference library .
+4. **Full Pattern Summation:** A user friendly interface for iterative full pattern summation of single samples.
+5. **Automated Full Pattern Summation:** A user friendly interface for automated full pattern summation of single samples.
+6. **Results viewer:** Allows for quick inspection of results derived from full pattern summation.
+7. **Results editor:** Allows for results from previously saved `powdRfps` and `powdRafps` objects to be edited via addition or removal of reference patterns to the fitting process.
+8. **Help** Provides a series of video tutorials (via YouTube) detailing the use of the `powdR` Shiny application.
+
+## References
+
+
+

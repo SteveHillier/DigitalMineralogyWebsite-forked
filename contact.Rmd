@@ -1,0 +1,73 @@
+---
+title: "Contact"
+output: 
+  html_document:
+    includes:
+      after_body: footer.html
+---
+
+  <style type="text/css">
+  .title {
+    display: none;
+  }
+  
+  body{ /* Normal  */
+      font-size: 16px;
+  }
+  code.r{ /* Code block */
+    font-size: 16px;
+  }
+  p {line-height: 1.5em;}
+  
+  }
+  </style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-4">
+
+## **Dr Benjamin Butler**
+### *Digital Soil Mineralogist*
+#### The James Hutton Institute
+#### Aberdeen
+#### <benjamin.butler@hutton.ac.uk>
+
+</div>
+
+<div class="col-sm-4">
+
+<a href="https://www.hutton.ac.uk/staff/benjamin-butler"><img src="images/benjamin-butler.jpg" /></p></a>
+
+</div>
+
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+---
+
+<div class="col-sm-4">
+
+
+## **Prof. Steve Hillier**
+### *Soil Mineralogist*
+#### The James Hutton Institute
+#### Aberdeen
+#### <stephen.hillier@hutton.ac.uk>
+
+</div>
+
+
+<div class="col-sm-4">
+
+<a href="https://www.hutton.ac.uk/staff/steve-hillier"><img src="images/steve-hillier.jpg" /></p></a>
+
+</div>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
