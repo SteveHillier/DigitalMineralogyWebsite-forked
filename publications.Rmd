@@ -31,6 +31,8 @@ Butler, B.M., Hillier, S. (2021) [powdR: An R package for quantitative mineralog
 
 Butler, B.M., Hillier, S. (2021) [Automated full-pattern summation of X-ray powder diffraction data for high-throughput quantification of clay-bearing mixtures](https://doi.org/10.1007/s42860-020-00105-6), *Clays and Clay Minerals*, 69, 38-51.
 
+Butler, B.M., Palarea-Albaladejo, J., Shepherd, K.D., Nyambura, K.M., Towett, E.K., Sila, A.M., Hillier, S. (2020) [Mineral-nutrient relationships in African soils assessed using cluster analysis of X-ray powder diffraction patterns and compositional methods](https://doi.org/10.1016/j.geoderma.2020.114474), *Geoderma*, 375, Article 114474.
+
 Butler, B.M. (2020) [Mineral sources of aqua regia extractable base cations in Scottish soils interpreted from Cubist models trained with quantitative mineralogy data](https://doi.org/10.1016/j.chemgeo.2020.119773), *Chemical Geology*, 551, Article No. 119773.
 
 Butler, B.M., Sila, A.M., Shepherd, K.D., Nyambura, M., Gilmore, C.J., Kourkoumelis, N., Hillier, S. (2019) [Pre-treatment of soil X-ray powder diffraction data for cluster analysis](https://doi.org/10.1016/j.geoderma.2020.114474), *Geoderma*, 337, 413-424.
