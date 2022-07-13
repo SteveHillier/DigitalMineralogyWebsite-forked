@@ -27,6 +27,7 @@ output:
 
 ## **Dr Benjamin Butler**
 ### *Digital Soil Mineralogist*
+#### Honorary Associate
 #### The James Hutton Institute
 #### Aberdeen
 #### <benjamin.butler@hutton.ac.uk>
