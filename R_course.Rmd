@@ -33,6 +33,6 @@ Whilst the examples within the course documentation use soil XRPD data, the appr
 
 <center>
 `r emo::ji("high voltage")`
-**COMING SOON**
+[**COMING SOON**](http://digitalmineralogy.hutton.ac.uk/course/)
 `r emo::ji("high voltage")`
 </center>
