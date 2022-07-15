@@ -13,8 +13,8 @@
 
 <title>The powdR package</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -321,18 +321,39 @@ $(document).ready(function () {
 
 <div id="the-powdr-package" class="section level1">
 <h1><strong>The <code>powdR</code> package</strong></h1>
-<p><a href="https://travis-ci.org/benmbutler/powdR"><img src="https://travis-ci.org/benmbutler/powdR.svg?branch=master" alt="Build Status" /></a> <a href="https://CRAN.R-project.org/package=powdR"><img src="http://www.r-pkg.org/badges/version/powdR" alt="CRAN_Status_Badge" /></a> <a href="https://cran.r-project.org/package=powdR"><img src="https://cranlogs.r-pkg.org/badges/grand-total/powdR" alt="Total_Downloads" /></a></p>
+<p><a href="https://travis-ci.org/benmbutler/powdR"><img
+src="https://travis-ci.org/benmbutler/powdR.svg?branch=master"
+alt="Build Status" /></a> <a
+href="https://CRAN.R-project.org/package=powdR"><img
+src="http://www.r-pkg.org/badges/version/powdR"
+alt="CRAN_Status_Badge" /></a> <a
+href="https://cran.r-project.org/package=powdR"><img
+src="https://cranlogs.r-pkg.org/badges/grand-total/powdR"
+alt="Total_Downloads" /></a></p>
 <hr />
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p><code>powdR</code> is an open source implementation of the full pattern summation approach to quantitative mineralogy from X-ray powder diffraction data <span class="citation">(Chipera and Bish 2002, 2013; Eberl 2003)</span>, written in the <code>R</code> programming language. It seeks to make quantitative phase analysis from XRPD data a faster and more user-friendly procedure.</p>
-<p>This short tutorial explains the installation and basic use of <code>powdR</code>, which requires a prior installation of R. A more detailed tutorial of the package is provided in the pacakge <a href="https://cran.r-project.org/web/packages/powdR/vignettes/powdR_vignette.html">Vignette</a>, and video tutorials of the <code>powdR</code> web application can be found on the powdR <a href="https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw">YouTube channel</a>.</p>
+<p><code>powdR</code> is an open source implementation of the full
+pattern summation approach to quantitative mineralogy from X-ray powder
+diffraction data <span class="citation">(Chipera and Bish 2002, 2013;
+Eberl 2003; Omotoso et al. 2006)</span>, written in the <code>R</code>
+programming language. It seeks to make quantitative phase analysis from
+XRPD data a faster and more user-friendly procedure.</p>
+<p>This short tutorial explains the installation and basic use of
+<code>powdR</code>, which requires a prior installation of R. A more
+detailed tutorial of the package is provided in the pacakge <a
+href="https://cran.r-project.org/web/packages/powdR/vignettes/powdR_vignette.html">Vignette</a>,
+and video tutorials of the <code>powdR</code> web application can be
+found on the powdR <a
+href="https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw">YouTube
+channel</a>.</p>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>The stable version of <code>powdR</code> is on CRAN:</p>
 <pre class="r"><code>install.packages(&quot;powdR&quot;)</code></pre>
-<p>Alternatively, the development version can be downloaded from GitHub</p>
+<p>Alternatively, the development version can be downloaded from
+GitHub</p>
 <pre class="r"><code>#Install devtools if you don&#39;t already have it on your machine
 install.packages(&quot;devtools&quot;)
 
@@ -342,7 +363,6 @@ devtools::install_github(&#39;benmbutler/powdR&#39;)</code></pre>
 <h2>Basic usage</h2>
 <pre class="r"><code>library(powdR)
 #&gt; powdR: Full Pattern Summation of X-Ray Powder Diffraction Data
-
 #Load some soils to quantify
 data(soils)
 
@@ -362,7 +382,6 @@ q &lt;-  fps(lib = minerals,
 #&gt; -Computing phase concentrations
 #&gt; -Internal standard concentration unknown. Assuming phases sum to 100 %
 #&gt; ***Full pattern summation complete***
-
 #Inspect the phase concentrations (summarised by name)
 q$phases_grouped
 #&gt;       phase_name phase_percent
@@ -372,37 +391,72 @@ q$phases_grouped
 #&gt; 4         Illite        1.3515
 #&gt; 5      Kaolinite        1.3697
 #&gt; 6 Organic-Matter       41.1049
-
 #Inspect the quantification
 plot(q, wavelength = &quot;Cu&quot;)</code></pre>
 <p><img src="powdR_files/figure-html/example-1.png" width="672" /></p>
-<p>Alternatively, <code>plot(q, wavelength = "Cu", interactive = TRUE)</code> provides an interactive plot for better inspection of the fit.</p>
+<p>Alternatively,
+<code>plot(q, wavelength = "Cu", interactive = TRUE)</code> provides an
+interactive plot for better inspection of the fit.</p>
 </div>
 <div id="the-powdr-shiny-app" class="section level2">
 <h2>The <code>powdR</code> Shiny app</h2>
-<p>To run <code>powdR</code> via the Shiny web applicationp, use <code>run_powdR()</code>. This loads the application in your default web browser. The application has eight tabs:</p>
+<p>To run <code>powdR</code> via the Shiny web application, use
+<code>run_powdR()</code>. This loads the application in your default web
+browser. The application has eight tabs:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Reference Library Builder:</strong> Allows you to create and export a <code>powdRlib</code> reference library from two .csv files: one for the XRPD measurements, and the other for the ID, name and reference intensity ratio of each pattern.</li>
-<li><strong>Reference Library Viewer:</strong> Facilitates quick inspection of the phases within a <code>powdRlib</code> reference library.</li>
-<li><strong>Reference Library Editor:</strong> Allows the user to easily subset a <code>powdRlib</code> reference library .</li>
-<li><strong>Full Pattern Summation:</strong> A user friendly interface for iterative full pattern summation of single samples.</li>
-<li><strong>Automated Full Pattern Summation:</strong> A user friendly interface for automated full pattern summation of single samples.</li>
-<li><strong>Results viewer:</strong> Allows for quick inspection of results derived from full pattern summation.</li>
-<li><strong>Results editor:</strong> Allows for results from previously saved <code>powdRfps</code> and <code>powdRafps</code> objects to be edited via addition or removal of reference patterns to the fitting process.</li>
-<li><strong>Help</strong> Provides a series of video tutorials (via YouTube) detailing the use of the <code>powdR</code> Shiny application.</li>
+<li><strong>Reference Library Builder:</strong> Allows you to create and
+export a <code>powdRlib</code> reference library from two .csv files:
+one for the XRPD measurements, and the other for the ID, name and
+reference intensity ratio of each pattern.</li>
+<li><strong>Reference Library Viewer:</strong> Facilitates quick
+inspection of the phases within a <code>powdRlib</code> reference
+library.</li>
+<li><strong>Reference Library Editor:</strong> Allows the user to easily
+subset a <code>powdRlib</code> reference library .</li>
+<li><strong>Full Pattern Summation:</strong> A user friendly interface
+for iterative full pattern summation of single samples.</li>
+<li><strong>Automated Full Pattern Summation:</strong> A user friendly
+interface for automated full pattern summation of single samples.</li>
+<li><strong>Results viewer:</strong> Allows for quick inspection of
+results derived from full pattern summation.</li>
+<li><strong>Results editor:</strong> Allows for results from previously
+saved <code>powdRfps</code> and <code>powdRafps</code> objects to be
+edited via addition or removal of reference patterns to the fitting
+process.</li>
+<li><strong>Help</strong> Provides a series of video tutorials (via
+YouTube) detailing the use of the <code>powdR</code> Shiny
+application.</li>
 </ol>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2 class="unnumbered">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Chipera2002" class="csl-entry">
-Chipera, Steve J., and David L. Bish. 2002. <span>“<span class="nocase">FULLPAT: A full-pattern quantitative analysis program for X-ray powder diffraction using measured and calculated patterns</span>.”</span> <em>Journal of Applied Crystallography</em> 35 (6): 744–49. <a href="https://doi.org/10.1107/S0021889802017405">https://doi.org/10.1107/S0021889802017405</a>.
+Chipera, Steve J., and David L. Bish. 2002. <span>“<span
+class="nocase">FULLPAT: A full-pattern quantitative analysis program for
+X-ray powder diffraction using measured and calculated
+patterns</span>.”</span> <em>Journal of Applied Crystallography</em> 35
+(6): 744–49. <a
+href="https://doi.org/10.1107/S0021889802017405">https://doi.org/10.1107/S0021889802017405</a>.
 </div>
 <div id="ref-Chipera2013" class="csl-entry">
-———. 2013. <span>“<span class="nocase">Fitting Full X-Ray Diffraction Patterns for Quantitative Analysis: A Method for Readily Quantifying Crystalline and Disordered Phases</span>.”</span> <em>Advances in Materials Physics and Chemistry</em> 03 (01): 47–53. <a href="https://doi.org/10.4236/ampc.2013.31A007">https://doi.org/10.4236/ampc.2013.31A007</a>.
+———. 2013. <span>“<span class="nocase">Fitting Full X-Ray Diffraction
+Patterns for Quantitative Analysis: A Method for Readily Quantifying
+Crystalline and Disordered Phases</span>.”</span> <em>Advances in
+Materials Physics and Chemistry</em> 03 (01): 47–53. <a
+href="https://doi.org/10.4236/ampc.2013.31A007">https://doi.org/10.4236/ampc.2013.31A007</a>.
 </div>
 <div id="ref-Eberl2003" class="csl-entry">
-Eberl, D. D. 2003. <span>“<span class="nocase">User’s guide to ROCKJOCK - A program for determining quantitative mineralogy from powder X-ray diffraction data</span>.”</span> Boulder, CA: USGS.
+Eberl, D. D. 2003. <span>“<span class="nocase">User’s guide to ROCKJOCK
+- A program for determining quantitative mineralogy from powder X-ray
+diffraction data</span>.”</span> Boulder, CA: USGS.
+</div>
+<div id="ref-RN477" class="csl-entry">
+Omotoso, O., D. K. McCarty, S. Hillier, and R. Kleeberg. 2006.
+<span>“Some Successful Approaches to Quantitative Mineral Analysis as
+Revealed by the 3rd Reynolds Cup Contest.”</span> Journal Article.
+<em>Clays and Clay Minerals</em> 54 (6): 748–60. <a
+href="https://doi.org/10.1346/ccmn.2006.0540609">https://doi.org/10.1346/ccmn.2006.0540609</a>.
 </div>
 </div>
 </div>
