@@ -46,7 +46,7 @@ knitr::opts_chunk$set(
 
 `powdR` is an open source implementation of the full pattern summation approach to quantitative mineralogy from X-ray powder diffraction data [@Chipera2002;@Chipera2013;@Eberl2003;@RN477], written in the `R` programming language. It seeks to make quantitative phase analysis from XRPD data a faster and more user-friendly procedure.
 
-This short tutorial explains the installation and basic use of `powdR`, which requires a prior installation of R. A more detailed tutorial of the package is provided in the pacakge [Vignette](https://cran.r-project.org/web/packages/powdR/vignettes/powdR_vignette.html), and video tutorials of the `powdR` web application can be found on the powdR [YouTube channel](https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw).
+This short tutorial explains the installation and basic use of `powdR`, which requires a prior installation of R. A more detailed tutorial of the package is provided in the pacakge [Vignettes](https://cran.r-project.org/web/packages/powdR/vignettes/), and video tutorials of the `powdR` web application can be found on the powdR [YouTube channel](https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw).
 
 ## Installation
 

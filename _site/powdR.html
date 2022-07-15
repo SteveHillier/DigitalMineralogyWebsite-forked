@@ -13,7 +13,7 @@
 
 <title>The powdR package</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -52,6 +52,7 @@ if (window.hljs) {
   }
 }
 </script>
+
 
 
 
@@ -102,6 +103,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -254,7 +258,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -342,7 +346,7 @@ XRPD data a faster and more user-friendly procedure.</p>
 <p>This short tutorial explains the installation and basic use of
 <code>powdR</code>, which requires a prior installation of R. A more
 detailed tutorial of the package is provided in the pacakge <a
-href="https://cran.r-project.org/web/packages/powdR/vignettes/powdR_vignette.html">Vignette</a>,
+href="https://cran.r-project.org/web/packages/powdR/vignettes/">Vignettes</a>,
 and video tutorials of the <code>powdR</code> web application can be
 found on the powdR <a
 href="https://www.youtube.com/channel/UC4na-XpeEoTU7rB5aMpTQHw">YouTube
@@ -363,6 +367,7 @@ devtools::install_github(&#39;benmbutler/powdR&#39;)</code></pre>
 <h2>Basic usage</h2>
 <pre class="r"><code>library(powdR)
 #&gt; powdR: Full Pattern Summation of X-Ray Powder Diffraction Data
+
 #Load some soils to quantify
 data(soils)
 
@@ -382,6 +387,7 @@ q &lt;-  fps(lib = minerals,
 #&gt; -Computing phase concentrations
 #&gt; -Internal standard concentration unknown. Assuming phases sum to 100 %
 #&gt; ***Full pattern summation complete***
+
 #Inspect the phase concentrations (summarised by name)
 q$phases_grouped
 #&gt;       phase_name phase_percent
@@ -391,6 +397,7 @@ q$phases_grouped
 #&gt; 4         Illite        1.3515
 #&gt; 5      Kaolinite        1.3697
 #&gt; 6 Organic-Matter       41.1049
+
 #Inspect the quantification
 plot(q, wavelength = &quot;Cu&quot;)</code></pre>
 <p><img src="powdR_files/figure-html/example-1.png" width="672" /></p>
